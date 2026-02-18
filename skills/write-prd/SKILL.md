@@ -38,7 +38,7 @@ User wants to create a product requirements document for a feature, with context
 - Include specific file paths and existing patterns when describing technical context.
 - Keep scope focused — one feature per PRD.
 - Flag unknowns as open questions rather than making assumptions.
-- The `prd/` directory should be `.gitignored` — remind the user to add it if it isn't already.
+- The `prd/` directory should be committed to the repo so the whole team has specs alongside the code.
 
 ## Output
 

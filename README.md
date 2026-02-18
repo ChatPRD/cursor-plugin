@@ -21,7 +21,7 @@ Product requirements in your editor. Write PRDs from code context, implement fro
 
 ## How it works
 
-The plugin saves local copies of PRDs to a `prd/` directory in your project root so specs are always available for reference. The directory should be added to your `.gitignore`.
+The plugin saves local copies of PRDs to a `prd/` directory in your project root. These are committed to the repo so the whole team has specs alongside the code — useful for code review, onboarding, and understanding why things were built a certain way. ChatPRD remains the source of truth; local copies are kept in sync by the `update-prd` skill.
 
 When you run `implement-from-prd`, Cursor enters plan mode to build a structured implementation plan before writing any code. Every PRD requirement maps to a milestone so nothing gets missed.
 
@@ -31,8 +31,7 @@ The `check-prd-alignment` skill goes beyond a checkbox exercise — it reads the
 
 1. Install the ChatPRD plugin from the Cursor Marketplace.
 2. Open a project in Cursor — the MCP connection is automatic.
-3. Add `prd/` to your `.gitignore`.
-4. Try: "Write a PRD for [feature]" or "Implement the [document name] PRD".
+3. Try: "Write a PRD for [feature]" or "Implement the [document name] PRD".
 
 ## Links
 
