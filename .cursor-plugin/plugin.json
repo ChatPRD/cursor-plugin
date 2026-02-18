@@ -1,0 +1,31 @@
+{
+  "name": "chatprd",
+  "displayName": "ChatPRD",
+  "version": "1.0.0",
+  "description": "Product requirements in your editor. Write PRDs from code context, implement from specs, and verify your changes match requirements — powered by ChatPRD's MCP.",
+  "author": {
+    "name": "ChatPRD",
+    "email": "support@chatprd.ai"
+  },
+  "homepage": "https://chatprd.ai",
+  "repository": "https://github.com/chatprd/cursor-plugin",
+  "license": "MIT",
+  "logo": "assets/avatar.png",
+  "keywords": [
+    "prd",
+    "product",
+    "requirements",
+    "specs",
+    "planning",
+    "documents"
+  ],
+  "category": "utilities",
+  "tags": [
+    "product",
+    "requirements",
+    "planning"
+  ],
+  "skills": "./skills/",
+  "rules": "./rules/",
+  "agents": "./agents/"
+}

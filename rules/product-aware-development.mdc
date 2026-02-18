@@ -1,0 +1,14 @@
+---
+description: Product-aware development standards for teams using ChatPRD
+alwaysApply: true
+---
+
+# Product-aware development
+
+1. When implementing a feature with a corresponding PRD, reference specific requirements rather than making assumptions about intended behavior.
+2. Handle edge cases and error states that product specs call out — empty states, loading states, error recovery, and boundary conditions.
+3. If an implementation decision deviates from the spec, note it in a code comment or commit message so it can be tracked back to the PRD.
+4. Acceptance criteria from PRDs map to test cases. When writing tests, cover the scenarios the spec defines.
+5. Keep user-facing copy, labels, and flows consistent with what the PRD specifies.
+6. Check the local `prd/` directory for relevant specs before starting work on a feature.
+7. When a PRD states user or business goals, look for opportunities to improve the UX or implementation beyond the literal spec to better achieve those goals.
