@@ -1,21 +1,21 @@
 ---
 name: write-prd
-description: Create a product requirements document in ChatPRD from codebase context. Use when speccing a new feature, writing up requirements, or drafting a PRD.
+description: Create a product requirements document in ChatPRD from a feature idea, notes, transcripts, or codebase context. Use when speccing a new feature, turning notes into a spec, writing up requirements, or drafting a PRD.
 ---
 
 # Write a PRD
 
 ## Trigger
 
-User wants to create a product requirements document for a feature, with context from the current codebase.
+User wants to create a product requirements document for a feature, from their description, pasted notes or files, or context from the current codebase.
 
 ## Workflow
 
-1. Ask the user what feature or change they want to spec out.
-2. Explore the codebase to understand relevant context:
-   - Existing data models and schema
-   - Related components, routes, and API endpoints
-   - Current patterns and conventions
+1. Ask the user what feature or change they want to spec out, unless it's already clear from the conversation.
+2. Gather context from what's available:
+   - Notes, transcripts, research, or files the user shared in the conversation.
+   - Related existing documents, found with `search_documents` and read with `get_document`.
+   - If you have access to a code repository, explore relevant data models, components, routes, API endpoints, and conventions.
 3. List the user's ChatPRD projects using `list_projects` and ask which project this PRD belongs to (or skip if none).
 4. Pick the right template:
    - List available templates using `list_templates`.
@@ -25,23 +25,22 @@ User wants to create a product requirements document for a feature, with context
 5. Draft an outline with sections tailored to the feature:
    - Problem statement and goals
    - User stories and acceptance criteria
-   - Technical context (from codebase analysis)
+   - Technical context (from codebase analysis or provided material)
    - Edge cases and error states
    - Open questions
 6. Create the document in ChatPRD using `create_document` with the outline and selected template.
-7. Save a local copy of the PRD as a markdown file in the `prd/` directory at the project root (create the directory if it doesn't exist). Name the file using the document title in kebab-case (e.g., `prd/user-authentication.md`). This gives the team local access to specs for reference during development.
-8. Share the ChatPRD document link and local file path with the user.
+7. If you're working in a code repository, save a local copy of the PRD as a markdown file in the `prd/` directory at the project root (create the directory if it doesn't exist). Name the file using the document title in kebab-case (e.g., `prd/user-authentication.md`).
+8. Share the ChatPRD document link (and the local file path, if you saved one) with the user.
 
 ## Guardrails
 
-- Ground the PRD in actual codebase context, not generic boilerplate.
-- Include specific file paths and existing patterns when describing technical context.
+- Ground the PRD in the context you gathered, not generic boilerplate.
+- When you have codebase context, include specific file paths and existing patterns in the technical context.
 - Keep scope focused — one feature per PRD.
 - Flag unknowns as open questions rather than making assumptions.
-- The `prd/` directory should be committed to the repo so the whole team has specs alongside the code.
 
 ## Output
 
 - PRD created in ChatPRD with document link
-- Local copy saved to `prd/` directory
+- Local copy in `prd/` when working in a repository
 - Summary of what was included

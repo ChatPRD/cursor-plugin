@@ -1,7 +1,7 @@
 {
   "name": "chatprd",
   "displayName": "ChatPRD",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Product requirements in your editor. Write PRDs from code context, implement from specs, and verify your changes match requirements — powered by ChatPRD's MCP.",
   "author": {
     "name": "ChatPRD",
