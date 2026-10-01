@@ -1,6 +1,6 @@
 ---
 name: check-prd-alignment
-description: Compare current code changes against a PRD to find gaps, deviations, and opportunities. Use before opening a PR, after finishing a feature, or to verify requirement coverage.
+description: Compare code changes in the current repository against a ChatPRD PRD to find gaps, deviations, and opportunities. Use in a coding workspace before opening a PR, after finishing a feature, or to verify requirement coverage.
 ---
 
 # Check PRD alignment

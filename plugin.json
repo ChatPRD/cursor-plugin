@@ -1,0 +1,94 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "chatprd",
+  "version": "1.1.0",
+  "description": "Write, review, and update product requirements documents in ChatPRD from ChatGPT, Codex, and Cursor. Draft PRDs from notes or code context, critique specs, plan implementation from a PRD, and keep docs in sync with what shipped.",
+  "author": {
+    "name": "ChatPRD",
+    "email": "support@chatprd.ai",
+    "url": "https://www.chatprd.ai"
+  },
+  "homepage": "https://www.chatprd.ai",
+  "repository": "https://github.com/ChatPRD/cursor-plugin",
+  "license": "MIT",
+  "keywords": ["prd", "product", "requirements", "specs", "planning", "documents"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "ChatPRD",
+        "shortDescription": "Write and review PRDs",
+        "longDescription": "ChatPRD is the AI copilot for product managers. Draft product requirements documents from rough notes or code context using your ChatPRD templates and projects, review existing PRDs for gaps and unclear requirements, find and read your team's documents, and update specs as decisions change. In Codex, turn a PRD into an implementation plan and check your changes against the spec. ChatPRD only accesses documents, projects, and templates available to your connected ChatPRD account.",
+        "developerName": "ChatPRD",
+        "category": "Productivity",
+        "capabilities": ["Search documents", "Read documents", "Create documents", "Update documents"],
+        "websiteURL": "https://www.chatprd.ai",
+        "supportURL": "https://www.chatprd.ai/docs",
+        "privacyPolicyURL": "https://app.chatprd.ai/privacy-policy",
+        "termsOfServiceURL": "https://app.chatprd.ai/terms-of-service",
+        "defaultPrompt": [
+          "Write a PRD in ChatPRD from these meeting notes.",
+          "Review my latest ChatPRD document and point out gaps.",
+          "Find my ChatPRD docs about onboarding."
+        ],
+        "composerIcon": "./assets/avatar.png",
+        "logo": "./assets/avatar.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Create a PRD from a short feature description using the user's templates and projects",
+              "prompt": "Write a PRD in ChatPRD for adding dark mode to our mobile app.",
+              "tools_triggered": "list_projects, list_templates, create_document",
+              "expected_behavior": "Asks which project to use (or skips if none), picks a PRD template, creates a new ChatPRD document with problem, goals, requirements, and open questions, and returns the document link."
+            },
+            {
+              "description": "Search the user's documents by topic",
+              "prompt": "Find my ChatPRD documents about onboarding.",
+              "tools_triggered": "search_documents",
+              "expected_behavior": "Returns matching documents from the connected account with titles and links, or says clearly that none were found."
+            },
+            {
+              "description": "Review an existing PRD for gaps",
+              "prompt": "Review my most recent ChatPRD document and tell me what's missing.",
+              "tools_triggered": "list_documents, get_document",
+              "expected_behavior": "Fetches the latest document and returns a structured critique covering unclear goals, missing acceptance criteria, edge cases, and open questions, citing sections of the document. Does not modify the document."
+            },
+            {
+              "description": "Update a document after the user confirms the change",
+              "prompt": "Add a success metrics section to my onboarding PRD in ChatPRD.",
+              "tools_triggered": "search_documents, get_document, update_document",
+              "expected_behavior": "Finds the onboarding PRD, proposes the new section, and after confirmation updates the document in ChatPRD and returns the link."
+            },
+            {
+              "description": "Browse projects and their documents",
+              "prompt": "What projects do I have in ChatPRD, and what documents are in the first one?",
+              "tools_triggered": "list_projects, list_project_documents",
+              "expected_behavior": "Lists the account's projects and the documents in the selected project without inventing any."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Deletion is not supported",
+              "prompt": "Delete all of my ChatPRD documents."
+            },
+            {
+              "description": "Payments are not supported",
+              "prompt": "Upgrade my ChatPRD subscription and charge my card."
+            },
+            {
+              "description": "Unrelated request should not trigger ChatPRD tools",
+              "prompt": "What's the weather in San Francisco today?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "ChatPRD does not sell products or process payments in ChatGPT."
+      },
+      "publication": {
+        "release_notes": "Initial ChatGPT and Codex release: write, review, find, and update PRDs in ChatPRD, plus implementation planning and PRD alignment checks in Codex."
+      }
+    }
+  }
+}

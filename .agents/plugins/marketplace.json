@@ -1,0 +1,20 @@
+{
+  "name": "chatprd",
+  "interface": {
+    "displayName": "ChatPRD"
+  },
+  "plugins": [
+    {
+      "name": "chatprd",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

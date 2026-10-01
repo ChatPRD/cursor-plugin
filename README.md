@@ -1,6 +1,6 @@
-# ChatPRD for Cursor
+# ChatPRD plugin
 
-Product requirements in your editor. Write PRDs from code context, implement from specs, verify alignment, and keep docs in sync — powered by [ChatPRD](https://chatprd.ai).
+One plugin package for ChatGPT, Codex, and Cursor. Product requirements where you work. Write PRDs from code context, implement from specs, verify alignment, and keep docs in sync — powered by [ChatPRD](https://chatprd.ai).
 
 ## What's included
 
@@ -10,10 +10,12 @@ Product requirements in your editor. Write PRDs from code context, implement fro
 
 | Skill | What it does |
 |-------|-------------|
-| `write-prd` | Analyzes your codebase and creates a PRD in ChatPRD with real technical context |
+| `get-started` | Onboarding: confirms the ChatPRD connection and suggests a first task |
+| `write-prd` | Creates a PRD in ChatPRD from notes, a feature idea, or codebase context |
+| `review-prd` | Critiques a PRD for gaps, unclear requirements, and missing edge cases |
 | `implement-from-prd` | Fetches a PRD and builds an implementation plan using plan mode |
 | `check-prd-alignment` | Diffs your branch against a PRD — reports coverage, gaps, and **Opportunity** items to better achieve the PRD's goals |
-| `update-prd` | Updates the PRD to reflect what was actually built, including deviations and trade-offs |
+| `update-prd` | Updates a PRD with new decisions or what was actually built, including deviations and trade-offs |
 
 **Rule** — Always-on product-aware development standards: reference specs, handle edge cases, flag deviations.
 
@@ -27,14 +29,41 @@ When you run `implement-from-prd`, Cursor enters plan mode to build a structured
 
 The `check-prd-alignment` skill goes beyond a checkbox exercise — it reads the PRD's stated user and business goals and identifies **Opportunity** items where the implementation could better achieve those goals.
 
+## Package layout
+
+The repo root is an [Agent Plugins](https://agent-plugins.org) package:
+
+- `plugin.json` — portable manifest. OpenAI listing, onboarding, and review metadata live in `extensions.com.openai`.
+- `mcp.json` — the ChatPRD remote MCP server (`https://app.chatprd.ai/mcp`, OAuth).
+- `skills/` — shared by ChatGPT, Codex, and Cursor.
+- `assets/` — icons.
+- `.cursor-plugin/plugin.json`, `rules/`, `agents/` — Cursor-only components.
+- `.agents/plugins/marketplace.json` — Codex / ChatGPT desktop marketplace for installing from this repo.
+
 ## Getting started
 
-1. Install the ChatPRD plugin from the Cursor Marketplace.
-2. Open a project in Cursor — the MCP connection is automatic.
-3. Try: "Write a PRD for [feature]" or "Implement the [document name] PRD".
+**Cursor:** Install the ChatPRD plugin from the Cursor Marketplace, open a project, and try "Write a PRD for [feature]".
+
+**Codex / ChatGPT desktop:**
+
+```bash
+codex plugin marketplace add ChatPRD/cursor-plugin
+codex plugin add chatprd@chatprd
+```
+
+Then connect your ChatPRD account when prompted and try "Review my latest ChatPRD document".
+
+## Submitting to the ChatGPT plugin directory
+
+```bash
+./scripts/package-openai.sh   # writes dist/chatprd-<version>.zip
+```
+
+Upload the ZIP in the OpenAI plugin submission portal. Reviewer credentials and the demo recording URL are entered in the dashboard, not in the package. Bump `version` in `plugin.json` for each new upload.
 
 ## Links
 
 - [ChatPRD](https://chatprd.ai)
 - [ChatPRD MCP docs](https://chatprd.ai/product/mcp)
 - [Cursor Plugin docs](https://cursor.com/docs/plugins)
+- [OpenAI plugin docs](https://developers.openai.com/plugins)
