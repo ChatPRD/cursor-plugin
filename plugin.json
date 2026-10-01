@@ -30,8 +30,8 @@
           "Review my latest ChatPRD document and point out gaps.",
           "Find my ChatPRD docs about onboarding."
         ],
-        "composerIcon": "./assets/avatar.png",
-        "logo": "./assets/avatar.png"
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
       },
       "onboardingSkill": "./skills/get-started/SKILL.md",
       "review": {
