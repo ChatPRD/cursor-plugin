@@ -1,6 +1,6 @@
 ---
 name: review-prd
-description: Review a PRD stored in ChatPRD and give structured, actionable feedback on goals, requirements, acceptance criteria, edge cases, and open questions. Use when the user asks to review, critique, pressure-test, or improve a PRD or spec.
+description: Review a PRD (stored in ChatPRD, pasted, or shared as a file) and give structured, actionable feedback on goals, requirements, acceptance criteria, edge cases, and open questions. Use when the user asks to review, critique, pressure-test, or improve a PRD or spec.
 ---
 
 # Review a PRD
@@ -8,11 +8,12 @@ description: Review a PRD stored in ChatPRD and give structured, actionable feed
 ## Workflow
 
 1. Find the document:
+   - If the user pasted the PRD or shared a file, review that directly. No ChatPRD account is needed.
    - If the user names it, use `search_documents` with keywords from the name.
    - If they say "latest" or "most recent", use `list_documents`.
    - If the document is in a project, `list_projects` and `list_project_documents` can help narrow it down.
    - If several documents match, ask the user which one to review.
-2. Fetch the full content with `get_document`.
+2. For a ChatPRD document, fetch the full content with `get_document`.
 3. Review the document against these criteria:
    - **Problem and goals**: Is the user problem clear? Are goals measurable, and is there a success metric?
    - **Scope**: Are in-scope and out-of-scope items explicit? Is the scope realistic for one release?

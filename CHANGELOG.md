@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+- `write-prd` works without a ChatPRD account: uses ChatPRD's built-in templates (`list_public_templates`, `get_public_template`) and outputs Markdown, a `prd/` file, or a doc in a connected tool like Notion or Google Drive
+- `get-started` and `review-prd` work without an account (review pasted or shared PRDs)
+- Review test cases for the account-free flows
+
 ## 1.1.0
 
 - Agent Plugins manifest (`plugin.json`) so the same package installs in ChatGPT, Codex, and Cursor

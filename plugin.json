@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "chatprd",
-  "version": "1.1.0",
-  "description": "Write, review, and update product requirements documents in ChatPRD from ChatGPT, Codex, and Cursor. Draft PRDs from notes or code context, critique specs, plan implementation from a PRD, and keep docs in sync with what shipped.",
+  "version": "1.2.0",
+  "description": "Write, review, and update product requirements documents with ChatPRD from ChatGPT, Codex, and Cursor. Draft PRDs from notes or code context with ChatPRD's templates (no account needed), critique specs, plan implementation from a PRD, and keep docs in sync with what shipped.",
   "author": {
     "name": "ChatPRD",
     "email": "support@chatprd.ai",
@@ -11,22 +11,35 @@
   "homepage": "https://www.chatprd.ai",
   "repository": "https://github.com/ChatPRD/cursor-plugin",
   "license": "MIT",
-  "keywords": ["prd", "product", "requirements", "specs", "planning", "documents"],
+  "keywords": [
+    "prd",
+    "product",
+    "requirements",
+    "specs",
+    "planning",
+    "documents"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "ChatPRD",
         "shortDescription": "Write and review PRDs",
-        "longDescription": "ChatPRD is the AI copilot for product managers. Draft product requirements documents from rough notes or code context using your ChatPRD templates and projects, review existing PRDs for gaps and unclear requirements, find and read your team's documents, and update specs as decisions change. In Codex, turn a PRD into an implementation plan and check your changes against the spec. ChatPRD only accesses documents, projects, and templates available to your connected ChatPRD account.",
+        "longDescription": "ChatPRD is the AI copilot for product managers. Draft PRDs, AI development briefs, user testing plans, and launch checklists from rough notes or code context using ChatPRD's built-in templates, with no account required: get the document as Markdown or save it to a connected tool like Notion or Google Drive. Review any PRD for gaps and unclear requirements. Connect a ChatPRD account to save documents to ChatPRD, use your own templates and projects, find your team's documents, and update specs as decisions change. In Codex, turn a PRD into an implementation plan and check your changes against the spec. Account features only access documents, projects, and templates available to your connected ChatPRD account.",
         "developerName": "ChatPRD",
         "category": "Productivity",
-        "capabilities": ["Search documents", "Read documents", "Create documents", "Update documents"],
+        "capabilities": [
+          "Browse templates",
+          "Search documents",
+          "Read documents",
+          "Create documents",
+          "Update documents"
+        ],
         "websiteURL": "https://www.chatprd.ai",
         "supportURL": "https://www.chatprd.ai/docs",
         "privacyPolicyURL": "https://app.chatprd.ai/privacy-policy",
         "termsOfServiceURL": "https://app.chatprd.ai/terms-of-service",
         "defaultPrompt": [
-          "Write a PRD in ChatPRD from these meeting notes.",
+          "Write a PRD for this feature idea using ChatPRD's template.",
           "Review my latest ChatPRD document and point out gaps.",
           "Find my ChatPRD docs about onboarding."
         ],
@@ -37,6 +50,18 @@
       "review": {
         "test_cases": {
           "positive": [
+            {
+              "description": "Write a PRD without a ChatPRD account using the built-in ChatPRD PRD template",
+              "prompt": "Use ChatPRD's PRD template to write a PRD for adding saved searches to our job board.",
+              "tools_triggered": "list_public_templates, get_public_template",
+              "expected_behavior": "Without asking the user to sign in, fetches the ChatPRD PRD template and returns a complete Markdown PRD for saved searches that follows the template's sections, with no leftover template instructions or placeholders."
+            },
+            {
+              "description": "Browse ChatPRD's built-in templates without an account",
+              "prompt": "What document templates does ChatPRD have?",
+              "tools_triggered": "list_public_templates",
+              "expected_behavior": "Lists ChatPRD's built-in templates (PRD, Product Brief for AI Development, User Testing Plan, Product Launch Checklist) with what each is for, and offers to write one."
+            },
             {
               "description": "Create a PRD from a short feature description using the user's templates and projects",
               "prompt": "Write a PRD in ChatPRD for adding dark mode to our mobile app.",
@@ -87,7 +112,7 @@
         "commerce_description": "ChatPRD does not sell products or process payments in ChatGPT."
       },
       "publication": {
-        "release_notes": "Initial ChatGPT and Codex release: write, review, find, and update PRDs in ChatPRD, plus implementation planning and PRD alignment checks in Codex."
+        "release_notes": "Write PRDs, AI development briefs, user testing plans, and launch checklists with ChatPRD's built-in templates without a ChatPRD account. Connect an account to save to ChatPRD and use your own templates and projects."
       }
     }
   }

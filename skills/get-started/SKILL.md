@@ -1,22 +1,20 @@
 ---
 name: get-started
-description: Introduce the ChatPRD plugin, confirm the ChatPRD connection, and suggest a first task. Use when the user first installs ChatPRD, asks what ChatPRD can do, or asks how to get started.
+description: Introduce the ChatPRD plugin, check whether a ChatPRD account is connected, and suggest a first task. Use when the user first installs ChatPRD, asks what ChatPRD can do, or asks how to get started.
 ---
 
 # Get started with ChatPRD
 
 ## Workflow
 
-1. Confirm the connection by calling `list_documents` with a small `limit` (for example, 5).
-   - If the call fails with an authentication error, ask the user to connect or reconnect their ChatPRD account and stop.
-   - If it succeeds, briefly mention how many recent documents you found (titles only).
-2. Call `list_projects` to see whether the user organizes documents into projects. Mention project names if any exist.
-3. Explain in two or three sentences what you can do with ChatPRD:
-   - Draft a new PRD from notes, a transcript, or a feature idea using their ChatPRD templates.
-   - Review an existing PRD for gaps, unclear requirements, and missing edge cases.
-   - Find documents and update them as decisions change.
+1. Check for a connected account by calling `list_documents` with a small `limit` (for example, 5).
+   - If it succeeds, briefly mention how many recent documents you found (titles only), then call `list_projects` and mention project names if any exist.
+   - If it fails because the user isn't signed in, or their plan doesn't include it, continue without an account. Don't block on sign-in.
+2. Explain in two or three sentences what you can do:
+   - Without an account: draft a PRD or other product doc from notes, a transcript, or a feature idea using ChatPRD's built-in templates (`list_public_templates`), as Markdown or in a connected doc tool like Notion or Google Drive; review a PRD the user pastes or shares.
+   - With a connected account: also save docs to ChatPRD, use their own templates and projects, find documents, and update them as decisions change.
    - In a code workspace: plan implementation from a PRD and check changes against it.
-4. Offer two or three concrete next steps based on what you found. For example: "Review <most recent document title>" or "Draft a PRD from notes you paste here."
+3. Offer two or three concrete next steps based on what you found. For example: "Review <most recent document title>", "Draft a PRD from notes you paste here", or "Show me ChatPRD's templates."
 
 ## Guardrails
 
