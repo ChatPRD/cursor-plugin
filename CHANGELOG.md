@@ -1,9 +1,10 @@
 # Changelog
 
-## 1.2.2
+## 1.2.3
 
 - Add the demo walkthrough URL (`review.demo_recording_url`) and updated release notes for OpenAI review
 - Trim review test cases to the required five positive and three negative
+- Short description: "Write and improve PRDs, specs, and product docs"
 
 ## 1.2.0
 
