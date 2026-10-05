@@ -1,8 +1,9 @@
 # Changelog
 
-## 1.2.1
+## 1.2.2
 
 - Add the demo walkthrough URL (`review.demo_recording_url`) and updated release notes for OpenAI review
+- Trim review test cases to the required five positive and three negative
 
 ## 1.2.0
 

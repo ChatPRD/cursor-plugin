@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "chatprd",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Write, review, and update product requirements documents with ChatPRD from ChatGPT, Codex, and Cursor. Draft PRDs from notes or code context with ChatPRD's templates (no account needed), critique specs, plan implementation from a PRD, and keep docs in sync with what shipped.",
   "author": {
     "name": "ChatPRD",
@@ -59,12 +59,6 @@
               "expected_behavior": "Without asking the user to sign in, fetches the ChatPRD PRD template and returns a complete Markdown PRD for saved searches that follows the template's sections, with no leftover template instructions or placeholders."
             },
             {
-              "description": "Browse ChatPRD's built-in templates without an account",
-              "prompt": "What document templates does ChatPRD have?",
-              "tools_triggered": "list_public_templates",
-              "expected_behavior": "Lists ChatPRD's built-in templates (PRD, Product Brief for AI Development, User Testing Plan, Product Launch Checklist) with what each is for, and offers to write one."
-            },
-            {
               "description": "Create a PRD from a short feature description using the user's templates and projects",
               "prompt": "Write a PRD in ChatPRD for adding dark mode to our mobile app.",
               "tools_triggered": "list_projects, list_templates, create_document",
@@ -77,12 +71,6 @@
               "expected_behavior": "Returns matching documents from the connected account with titles and links, or says clearly that none were found."
             },
             {
-              "description": "Review an existing PRD for gaps",
-              "prompt": "Review my most recent ChatPRD document and tell me what's missing.",
-              "tools_triggered": "list_documents, get_document",
-              "expected_behavior": "Fetches the latest document and returns a scorecard scoring Strategy, Structure, Clarity, and Completeness 1-10 with an overall score, top priorities, and 3-5 suggestions that quote the document's exact text and say what to change. Does not modify the document."
-            },
-            {
               "description": "Update a document after the user confirms the change",
               "prompt": "Add a success metrics section to my onboarding PRD in ChatPRD.",
               "tools_triggered": "search_documents, get_document, update_document",
@@ -93,12 +81,6 @@
               "prompt": "What projects do I have in ChatPRD, and what documents are in the first one?",
               "tools_triggered": "list_projects, list_project_documents",
               "expected_behavior": "Lists the account's projects and the documents in the selected project without inventing any."
-            },
-            {
-              "description": "Turn a PRD into an interactive HTML artifact",
-              "prompt": "Turn my onboarding PRD in ChatPRD into an interactive HTML page with diagrams.",
-              "tools_triggered": "search_documents, get_document",
-              "expected_behavior": "Finds and fetches the onboarding PRD, then returns one self-contained HTML file that keeps the PRD's sections in order, embeds Mermaid diagrams (such as the onboarding flow) and an illustrative clickable prototype next to the sections they illustrate, invents no requirements, and ends with a small 'Created with ChatPRD' footer."
             }
           ],
           "negative": [
