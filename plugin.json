@@ -116,7 +116,7 @@
             }
           ]
         },
-        "demo_recording_url": "https://screen.studio/share/RD8DcoEc",
+        "demo_recording_url": "https://screen.studio/share/RD8DcoEc?private-access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoiMi4wIiwic2hhcmVhYmxlTGlua0lkIjoiOTRhMGQ2NDAtMzdjZi00MGI5LWE3YTktMzkyMGRjMDdhN2FjIiwiaWF0IjoxNzkxMjQyMDAwfQ.vIi5CdFaKLshCk9p37fAiNnt9uNNqVG98UkxYqqC59c",
         "commerce": false,
         "commerce_description": "ChatPRD does not sell products or process payments in ChatGPT."
       },
