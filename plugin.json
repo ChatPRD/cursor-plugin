@@ -24,11 +24,13 @@
       "interface": {
         "displayName": "ChatPRD",
         "shortDescription": "Write and review PRDs",
-        "longDescription": "ChatPRD is the AI copilot for product managers. Draft PRDs, AI development briefs, user testing plans, and launch checklists from rough notes or code context using ChatPRD's built-in templates, with no account required: get the document as Markdown or save it to a connected tool like Notion or Google Drive. Review any PRD for gaps and unclear requirements. Connect a ChatPRD account to save documents to ChatPRD, use your own templates and projects, find your team's documents, and update specs as decisions change. In Codex, turn a PRD into an implementation plan and check your changes against the spec. Account features only access documents, projects, and templates available to your connected ChatPRD account.",
+        "longDescription": "ChatPRD is the AI copilot for product managers. Draft PRDs, AI development briefs, user testing plans, and launch checklists from rough notes or code context using ChatPRD's built-in templates, with no account required: get the document as Markdown or save it to a connected tool like Notion or Google Drive. Review any doc with a ChatPRD scorecard (strategy, structure, clarity, completeness) and exact edit suggestions, or turn it into an interactive HTML page with diagrams and clickable prototypes. Connect a ChatPRD account to save documents to ChatPRD, use your own templates and projects, find your team's documents, and update specs as decisions change. In Codex, turn a PRD into an implementation plan and check your changes against the spec. Account features only access documents, projects, and templates available to your connected ChatPRD account.",
         "developerName": "ChatPRD",
         "category": "Productivity",
         "capabilities": [
           "Browse templates",
+          "Create interactive artifacts",
+          "Review documents",
           "Search documents",
           "Read documents",
           "Create documents",
@@ -78,7 +80,7 @@
               "description": "Review an existing PRD for gaps",
               "prompt": "Review my most recent ChatPRD document and tell me what's missing.",
               "tools_triggered": "list_documents, get_document",
-              "expected_behavior": "Fetches the latest document and returns a structured critique covering unclear goals, missing acceptance criteria, edge cases, and open questions, citing sections of the document. Does not modify the document."
+              "expected_behavior": "Fetches the latest document and returns a scorecard scoring Strategy, Structure, Clarity, and Completeness 1-10 with an overall score, top priorities, and 3-5 suggestions that quote the document's exact text and say what to change. Does not modify the document."
             },
             {
               "description": "Update a document after the user confirms the change",
@@ -91,6 +93,12 @@
               "prompt": "What projects do I have in ChatPRD, and what documents are in the first one?",
               "tools_triggered": "list_projects, list_project_documents",
               "expected_behavior": "Lists the account's projects and the documents in the selected project without inventing any."
+            },
+            {
+              "description": "Turn a PRD into an interactive HTML artifact",
+              "prompt": "Turn my onboarding PRD in ChatPRD into an interactive HTML page with diagrams.",
+              "tools_triggered": "search_documents, get_document",
+              "expected_behavior": "Finds and fetches the onboarding PRD, then returns one self-contained HTML file that keeps the PRD's sections in order, embeds Mermaid diagrams (such as the onboarding flow) and an illustrative clickable prototype next to the sections they illustrate, invents no requirements, and ends with a small 'Created with ChatPRD' footer."
             }
           ],
           "negative": [

@@ -12,7 +12,8 @@ One plugin package for ChatGPT, Codex, and Cursor. Product requirements where yo
 |-------|-------------|
 | `get-started` | Onboarding: confirms the ChatPRD connection and suggests a first task |
 | `write-prd` | Writes a PRD from notes, a feature idea, or codebase context — as Markdown or in a connected doc tool without an account, or in ChatPRD when connected |
-| `review-prd` | Critiques a PRD for gaps, unclear requirements, and missing edge cases |
+| `review-doc` | ChatPRD's "Review my doc": a strategy-first scorecard (strategy, structure, clarity, completeness) with exact, quotable edit suggestions — no account needed for pasted docs |
+| `doc-to-artifact` | Turns a PRD or doc into a self-contained interactive HTML page with inline diagrams and clickable prototypes |
 | `implement-from-prd` | Fetches a PRD and builds an implementation plan using plan mode |
 | `check-prd-alignment` | Diffs your branch against a PRD — reports coverage, gaps, and **Opportunity** items to better achieve the PRD's goals |
 | `update-prd` | Updates a PRD with new decisions or what was actually built, including deviations and trade-offs |

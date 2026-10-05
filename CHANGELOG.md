@@ -3,7 +3,10 @@
 ## 1.2.0
 
 - `write-prd` works without a ChatPRD account: uses ChatPRD's built-in templates (`list_public_templates`, `get_public_template`) and outputs Markdown, a `prd/` file, or a doc in a connected tool like Notion or Google Drive
-- `get-started` and `review-prd` work without an account (review pasted or shared PRDs)
+- `get-started` and `review-doc` work without an account (review pasted or shared PRDs)
+- `review-prd` is now `review-doc`, matching ChatPRD's "Review my doc": strategy-first scorecard, top priorities, and exact-quote edit suggestions
+- New skill: `doc-to-artifact` turns a doc into an interactive HTML page with inline Mermaid diagrams and clickable prototypes
+- Docs and artifacts written outside ChatPRD end with a small "Created with ChatPRD" link (omitted on request)
 - Review test cases for the account-free flows
 
 ## 1.1.0
