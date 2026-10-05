@@ -116,11 +116,12 @@
             }
           ]
         },
+        "demo_recording_url": "https://screen.studio/share/RD8DcoEc",
         "commerce": false,
         "commerce_description": "ChatPRD does not sell products or process payments in ChatGPT."
       },
       "publication": {
-        "release_notes": "Write PRDs, AI development briefs, user testing plans, and launch checklists with ChatPRD's built-in templates without a ChatPRD account. Connect an account to save to ChatPRD and use your own templates and projects."
+        "release_notes": "Write PRDs, AI development briefs, user testing plans, and launch checklists with ChatPRD's built-in templates without a ChatPRD account. Review any doc with a ChatPRD scorecard, and turn docs into interactive HTML pages with diagrams and prototypes. Connect an account to save to ChatPRD and use your own templates and projects."
       }
     }
   }
