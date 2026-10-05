@@ -4,15 +4,16 @@ One plugin package for ChatGPT, Codex, and Cursor. Product requirements where yo
 
 ## What's included
 
-**MCP Server** — Zero-config connection to ChatPRD. No API key needed. Access your documents, projects, templates, and team workspace directly from Cursor.
+**MCP Server** — Zero-config connection to ChatPRD. No API key needed. ChatPRD's built-in templates (PRD, AI development brief, user testing plan, launch checklist) work without an account; connect a ChatPRD account to access your documents, projects, templates, and team workspace.
 
 **Skills:**
 
 | Skill | What it does |
 |-------|-------------|
 | `get-started` | Onboarding: confirms the ChatPRD connection and suggests a first task |
-| `write-prd` | Creates a PRD in ChatPRD from notes, a feature idea, or codebase context |
-| `review-prd` | Critiques a PRD for gaps, unclear requirements, and missing edge cases |
+| `write-prd` | Writes a PRD from notes, a feature idea, or codebase context — as Markdown or in a connected doc tool without an account, or in ChatPRD when connected |
+| `review-doc` | ChatPRD's "Review my doc": a strategy-first scorecard (strategy, structure, clarity, completeness) with exact, quotable edit suggestions — no account needed for pasted docs |
+| `doc-to-artifact` | Turns a PRD or doc into a self-contained interactive HTML page with inline diagrams and clickable prototypes |
 | `implement-from-prd` | Fetches a PRD and builds an implementation plan using plan mode |
 | `check-prd-alignment` | Diffs your branch against a PRD — reports coverage, gaps, and **Opportunity** items to better achieve the PRD's goals |
 | `update-prd` | Updates a PRD with new decisions or what was actually built, including deviations and trade-offs |
@@ -34,7 +35,7 @@ The `check-prd-alignment` skill goes beyond a checkbox exercise — it reads the
 The repo root is an [Agent Plugins](https://agent-plugins.org) package:
 
 - `plugin.json` — portable manifest. OpenAI listing, onboarding, and review metadata live in `extensions.com.openai`.
-- `mcp.json` — the ChatPRD remote MCP server (`https://app.chatprd.ai/mcp`, OAuth).
+- `mcp.json` — the ChatPRD remote MCP server (`https://app.chatprd.ai/mcp`). Template tools are public; account tools use OAuth.
 - `skills/` — shared by ChatGPT, Codex, and Cursor.
 - `assets/` — icons.
 - `.cursor-plugin/plugin.json`, `rules/`, `agents/` — Cursor-only components.
