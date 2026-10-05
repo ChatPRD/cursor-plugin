@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "chatprd",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Write, review, and update product requirements documents with ChatPRD from ChatGPT, Codex, and Cursor. Draft PRDs from notes or code context with ChatPRD's templates (no account needed), critique specs, plan implementation from a PRD, and keep docs in sync with what shipped.",
   "author": {
     "name": "ChatPRD",

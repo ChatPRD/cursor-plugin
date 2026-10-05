@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1
+
+- Add the demo walkthrough URL (`review.demo_recording_url`) and updated release notes for OpenAI review
+
 ## 1.2.0
 
 - `write-prd` works without a ChatPRD account: uses ChatPRD's built-in templates (`list_public_templates`, `get_public_template`) and outputs Markdown, a `prd/` file, or a doc in a connected tool like Notion or Google Drive
